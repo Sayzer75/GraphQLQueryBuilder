@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>Quadra.Framework.GraphQLEssentials</PackageId>
+    <Authors>Yannick GOSSET</Authors>
+    <Company>Cegid SA</Company>
+    <Product>GraphQLEssentials</Product>
+    <Description>Accès aux variables dans les requêtes composées.</Description>
+    <PackageReleaseNotes>Accès aux variables dans les requêtes composées.</PackageReleaseNotes>
+    <PackageTags>.NET, GraphQL, Helpers</PackageTags>
+    <RootNamespace>Quadra.Framework.GraphQL</RootNamespace>
+    <AssemblyName>Quadra.Framework.GraphQLEssentials</AssemblyName>
+    <Version>1.1.4</Version>
+    <Copyright>Cegid SA</Copyright>
+    <AssemblyVersion>1.1.4.0</AssemblyVersion>
+    <FileVersion>1.1.4.0</FileVersion>
+  </PropertyGroup>
+
+</Project>
