@@ -8,7 +8,7 @@ Une requête dite simple possède une opération, des paramètres (optionnels), 
 
 Exemple :
 
-```csharp
+```text
 /* sans paramètres */
 query SimpleOp {
     myRequest {
