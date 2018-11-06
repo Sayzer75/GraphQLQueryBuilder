@@ -1,37 +1,45 @@
-## Welcome to GitHub Pages
+## C'est quoi GraphQLQueryBuilder ?
 
-You can use the [editor on GitHub](https://github.com/Sayzer75/GraphQLQueryBuilder/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+GraphQLQueryBuilder permet de simplifier et cadrer la construction de requêtes GraphQL pour un client .NET Core. Les types gérés sont requêtes simples avec/sans paramètres, requêtes complexes avec/sans paramètres et requêtes composées.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Requête simple
 
-### Markdown
+Une requête dite simple possède une opération, des paramètres (optionnels), une action et des champs en retour.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Exemple :
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```csharp
+/* sans paramètres */
+query SimpleOp {
+    myRequest {
+        field1,
+        field2
+    }
+}
+/* avec paramètres */
+query SimpleOpWithParams($param1: String!, $param2: String!) {
+    myRequest(p1: $param1, p2: $param2) {
+        field1,
+        field2
+    }
+}
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+L'appel du builder se fait de cette manière pour les deux requêtes précédentes.
 
-### Jekyll Themes
+```csharp
+ // Création d'une instance du builder
+ var queryBuilder = new QueryBuilder("SimpleOp");
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Sayzer75/GraphQLQueryBuilder/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+// Construction de la requête
+queryBuilder.WithAction(new QueryActionBuilder("myRequest")
+.WithParameter<string>(new Quadra.Framework.GraphQL.Parameter<string>("p1", request.ClientId,"param1"))
+.WithParameter<string>(new Quadra.Framework.GraphQL.Parameter<string>("p2", request.ClientId,"param2"))
+.WithField(new NodeField("field1"))
+.WithField(new NodeField("field2")))
+.Build();
+```
 
-### Support or Contact
+## Requête complexe
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## Requête composée
